@@ -32,3 +32,11 @@ li {
   padding: 15px 15px 15px 10px;
   border-radius: 5px;
 }
+
+li.task:hover {
+  background-color: lightblue;
+}
+.task span {
+  cursor: pointer;
+  float: right;
+}
