@@ -1,5 +1,7 @@
 
 $(document).ready(function() {
+
+var urlApi = "http://makeitreal-todo.herokuapp.com/todo_items";
   $('#input').on('keyup', function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     var text = $('#input').val();
@@ -7,7 +9,7 @@ $(document).ready(function() {
     if(keycode == '13'){
       $('#input').val("");
 
-      $.ajax("http://makeitreal-todo.herokuapp.com/todo_items", {
+      $.ajax(urlApi, {
         type: 'POST',
         contentType: "application/json",
         data: JSON.stringify({ title: text }),
@@ -24,7 +26,7 @@ $(document).ready(function() {
 $('.todo-list').on('click', '.CheckBox_class', function(){
 	var li = $(this).closest("li");
   	var itemId = li.attr("id");
-  	var url = "http://makeitreal-todo.herokuapp.com/todo_items/"+itemId;
+  	var url = urlApi+itemId;
   	var patch = function(valor){
     	$.ajax(url, {
     		type: "PATCH",
@@ -46,7 +48,7 @@ $('.todo-list').on('click', '.CheckBox_class', function(){
 
 
 // GET request
-      var GETurl = 'http://makeitreal-todo.herokuapp.com/todo_items';
+      var GETurl = urlApi;
       $.get( GETurl, function(result) {
         $.each(result, function (index, list){
         if (list.done) {
