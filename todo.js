@@ -26,7 +26,7 @@ var urlApi = "http://makeitreal-todo.herokuapp.com/todo_items";
 $('.todo-list').on('click', '.CheckBox_class', function(){
 	var li = $(this).closest("li");
   	var itemId = li.attr("id");
-  	var url = urlApi+itemId;
+  	var url = urlApi+'/'+itemId;
   	var patch = function(valor){
     	$.ajax(url, {
     		type: "PATCH",
