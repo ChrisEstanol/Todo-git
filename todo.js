@@ -12,7 +12,7 @@ $(document).ready(function() {
         contentType: "application/json",
         data: JSON.stringify({ title: text }),
         success: function(data) {
-          var message = $('<div><li id=' + data.id + '><input type="checkbox"><label for="task"> ' + text + '</label></li></div>');
+          var message = $('<li class="task" id=' + data.id + '><input type="checkbox"><label for="task"> ' + text + '</label><span class="close">' + 'X' + '</span></li>');
 
           $('.todo-list').append(message);
         }
@@ -50,9 +50,9 @@ $('.todo-list').on('click', '.CheckBox_class', function(){
       $.get( GETurl, function(result) {
         $.each(result, function (index, list){
         if (list.done) {
-          var listElement = ('<li class="task underlined" id="' + list.id + '"><input type="checkbox" name="list" value="list" checked><label for="task">' + list.title + '</label><a href=""><span class="close">' + 'X' + '</span></a></li>');
+          var listElement = ('<li class="task underlined" id="' + list.id + '"><input type="checkbox" name="list" value="list" checked><label for="task">' + list.title + '</label><span class="close">' + 'X' + '</span></li>');
         } else {
-          var listElement = ('<li class="task" id="' + list.id + '"><input type="checkbox" name="list" value="list"><label for="task">' + list.title + '</label><a href=""><span class="close">' + 'X' + '</span></a></li>');
+          var listElement = ('<li class="task" id="' + list.id + '"><input type="checkbox" name="list" value="list"><label for="task">' + list.title + '</label><span class="close">' + 'X' + '</span></li>');
         }
 
         $(listElement).appendTo('.todo-list');
