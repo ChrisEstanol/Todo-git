@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   $('#input').on('keyup', function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -21,7 +20,7 @@ $(document).ready(function() {
   });
 
 
-$('.todo-list').ON('click', '.CheckBox_class', function(){
+$('.todo-list').on('click', '.CheckBox_class', function(){
 	var li = $(this).closest("li");
   	var itemId = li.attr("id");
   	var url = "http://makeitreal-todo.herokuapp.com/todo_items/"+itemId;
@@ -40,5 +39,7 @@ $('.todo-list').ON('click', '.CheckBox_class', function(){
     	patch(false);
     	li.removeClass("done");
   	}
+
+	
 
 });
