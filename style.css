@@ -40,3 +40,8 @@ li.task:hover {
   cursor: pointer;
   float: right;
 }
+
+input[type=checkbox]:checked + label{
+  text-decoration: line-through;
+}
+
